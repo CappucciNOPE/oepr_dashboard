@@ -34,7 +34,7 @@ laspy==2.4.1
 MarkupSafe==2.1.2
 matplotlib==3.5.3
 nbformat==5.7.0
-numpy==1.24.2
+numpy==1.21.6
 open3d==0.17.0
 packaging==23.0
 pandas==1.5.3
