@@ -17,9 +17,10 @@ from PIL import Image
 VALID_USERNAME_PASSWORD_PAIRS = {
     'emergencyprep':'tulane1555'
 }
-external_stylesheets=['/Users/mmontgomery/Documents/Spring 2023/OEPR/readiness_dashboard/assets/format.css']#<-- not working, but fuck the front end anyway
+#external_stylesheets=['/Users/mmontgomery/Documents/Spring 2023/OEPR/readiness_dashboard/assets/format.css']#<-- not working, but fuck the front end anyway
 
-data = pd.read_csv("/Users/temp/Documents/readiness_dashboard/temporary2.csv")#Local
+#data = pd.read_csv("/Users/temp/Documents/readiness_dashboard/temporary2.csv")#Local
+data = pd.read_csv("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/temporary2.csv")#deployed
 cols = data.columns
 train_types = list(pd.unique(data.loc[data['Event_Type']!="Monitoring"]['Event']))
 orgs=list(pd.unique(data['Department/Organization']))
@@ -187,9 +188,12 @@ def update_events(organizations,style,start_date, end_date, print):
 
 def make_pdf(data,bar_evs,bar_att,scatter,timeline,start_date,end_date):
     #write
-    bar1 = pio.write_image(bar_evs,"/Users/temp/Documents/readiness_dashboard/"+"bar1.jpeg")
-    bar2 = pio.write_image(bar_att,"/Users/temp/Documents/readiness_dashboard/"+"bar2.jpeg")
-    scat = pio.write_image(scatter,"/Users/temp/Documents/readiness_dashboard/"+"scatter.jpeg")
+    #bar1 = pio.write_image(bar_evs,"/Users/temp/Documents/readiness_dashboard/"+"bar1.jpeg")
+    #bar2 = pio.write_image(bar_att,"/Users/temp/Documents/readiness_dashboard/"+"bar2.jpeg")
+    #scat = pio.write_image(scatter,"/Users/temp/Documents/readiness_dashboard/"+"scatter.jpeg")
+    bar1 = pio.write_image(bar_evs,"https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"bar1.jpeg")
+    bar2 = pio.write_image(bar_att,"https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"bar2.jpeg")
+    scat = pio.write_image(scatter,"https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"scatter.jpeg")
     #time = pio.write_image(timeline,"time.svg")
     report = FPDF()
     report.set_font("Times", size=20,style='B')
@@ -202,22 +206,22 @@ def make_pdf(data,bar_evs,bar_att,scatter,timeline,start_date,end_date):
     report.ln()
     report.cell(txt='Reporting Period: '+str(start_date)+' to '+str(end_date))
     report.ln()
-    logo = Image.open("/Users/temp/Documents/readiness_dashboard/OEPR_logo.png")
+    logo = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/OEPR_logo.png")
     logoh,logow = logo.size
-    report.image("/Users/temp/Documents/readiness_dashboard/OEPR_logo.png",w=(report.epw)/2,h=((logoh)*(report.epw/logow))/2)
+    report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/OEPR_logo.png",w=(report.epw)/2,h=((logoh)*(report.epw/logow))/2)
     report.set_font(size=10)
     report.add_page()
-    bar1 = Image.open("/Users/temp/Documents/readiness_dashboard/"+"bar1.jpeg")
+    bar1 = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"bar1.jpeg")
     b1w, b1h = bar1.size
-    bar2 = Image.open("/Users/temp/Documents/readiness_dashboard/"+"bar2.jpeg")
+    bar2 = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"bar2.jpeg")
     b2w, b2h = bar2.size
-    scat = Image.open("/Users/temp/Documents/readiness_dashboard/"+"scatter.jpeg")
+    scat = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"scatter.jpeg")
     scatw, scath = scat.size
-    report.image("/Users/temp/Documents/readiness_dashboard/"+"bar1.jpeg",w=report.epw,h=(b1h)*(report.epw/b1w))
+    report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"bar1.jpeg",w=report.epw,h=(b1h)*(report.epw/b1w))
     report.ln()
-    report.image("/Users/temp/Documents/readiness_dashboard/"+"bar2.jpeg",w=report.epw,h=(b2h)*(report.epw/b2w))
+    report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"bar2.jpeg",w=report.epw,h=(b2h)*(report.epw/b2w))
     report.ln()
-    report.image("/Users/temp/Documents/readiness_dashboard/"+"scatter.jpeg",w=report.epw,h=(scath)*(report.epw/scatw))
+    report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"scatter.jpeg",w=report.epw,h=(scath)*(report.epw/scatw))
     report.add_page()
     k2p = pd.DataFrame(data.loc[data["Event_Type"].isin(['Monitoring','Incident'])])
 
@@ -313,16 +317,16 @@ def make_pdf(data,bar_evs,bar_att,scatter,timeline,start_date,end_date):
             xanchor="right",
             x=1))
         if (len(i_ncomm) > 0) or (len(monitoring_events)>0) or (len(monitoring_status)>0) or (len(i_comm)>0) or (len(events)>0):
-            ev = pio.write_image(events_graph,"/Users/temp/Documents/readiness_dashboard/"+str(key)+".jpeg")
-            ev = Image.open("/Users/temp/Documents/readiness_dashboard/"+str(key)+".jpeg")
+            ev = pio.write_image(events_graph,"https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+str(key)+".jpeg")
+            ev = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+str(key)+".jpeg")
             evw, evh = ev.size
-            report.image("/Users/temp/Documents/readiness_dashboard/"+str(key)+".jpeg",w=report.epw,h=(evh)*(report.epw/evw))
+            report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+str(key)+".jpeg",w=report.epw,h=(evh)*(report.epw/evw))
         report.add_page()
-    ft = pio.write_image(timeline,"/Users/temp/Documents/readiness_dashboard/"+"timeline.jpeg")
-    ft = Image.open("/Users/temp/Documents/readiness_dashboard/"+"timeline.jpeg")
+    ft = pio.write_image(timeline,"https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"timeline.jpeg")
+    ft = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"timeline.jpeg")
     ftw, fth = ft.size
-    fulltime = report.image("/Users/temp/Documents/readiness_dashboard/"+"timeline.jpeg",w=report.epw,h=(fth)*(report.epw/ftw))
-    report.output("/Users/temp/Documents/readiness_dashboard/test.pdf")
+    fulltime = report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"timeline.jpeg",w=report.epw,h=(fth)*(report.epw/ftw))
+    report.output("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/test.pdf")
     
         
         
