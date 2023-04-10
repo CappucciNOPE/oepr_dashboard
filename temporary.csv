@@ -1,0 +1,23 @@
+Start_Date/Time,End_Date/Time,Event,Lead_Personnel,Attendance,Department/Organization,Notes,Event_Type
+1/23/23 12:00,1/23/23 14:00,Example Training, Merrilee,1,Enterprise Risk Services,Test Object,Outreach
+1/24/23 15:00,1/24/23 15:00,Example Training, Merrilee,2,Enterprise Risk Services,Test Object,Outreach
+1/7/23 1:00,1/7/23 5:00,Example Training, Merrilee,3,Enterprise Risk Services,Test Object,Outreach
+2/14/23 4:00,2/14/23 21:00,Example Training, Merrilee,4,Enterprise Risk Services,Test Object,Outreach
+1/15/23 1:00,1/15/23 20:00,Example Training, Merrilee,5,Enterprise Risk Services,Test Object,Outreach
+5/2/23 2:00,5/2/23 8:00,Example Training, Merrilee,6,Enterprise Risk Services,Another Test object,Outreach
+2/21/23 11:00,2/21/23 1:00,Example Training, Merrilee,7,University Communications,Another Test object,Outreach
+2/2/23 16:00,3/15/23 13:00,Example Training, Merrilee,8,University Communications,Another Test object,Outreach
+3/15/23 12:30,3/15/23 7:00,Kuali Training,Meredith Beers,10,University Communications,Another Test object,Outreach
+1/16/23 12:00,1/16/23 17:00,MCI Training,Donald Veals,12,Office of Multicultural Affairs,Another Test object,Outreach
+2/20/23 9:00,2/20/23 10:00,MCI Training,Donald Veals,13,Businss School,Another Test object,Outreach
+3/20/23 14:00,3/20/23 23:00,MCI Training,Donald Veals,14,Athletics,Another Test object,Outreach
+1/8/23 12:00,1/8/23 22:00,Kuali Training,Meredith Beers,15,Athletics,,Outreach
+2/7/23 10:00,2/7/23 11:00,Kuali Training,Meredith Beers,16,Businss School,,Outreach
+2/25/23 14:00,2/25/23 13:00,Kuali Training,Meredith Beers,17,Office of Multicultural Affairs,,Outreach
+1/25/23 18:00,1/25/23 22:00,Football Game,0,0,Athletics,none,Monitoring
+1/15/23 9:00,1/15/23 15:00,Volleyball Game,0,0,Athletics,none,Monitoring
+1/15/23 8:00,1/15/23 17:00,Volleyball Game,0,0,OEPR,link incident report here maybe,Monitoring
+1/25/23 16:00,1/25/23 22:30,Football Game,0,0,OEPR,link incident report here maybe,Monitoring
+1/31/23 13:00,1/31/23 14:00,Power Outage,0,0,Facilities Services,link incident report here maybe,Everbridge
+1/31/23 17:00,1/31/23 18:00,Tornado Watch,0,0,OEPR,link incident report here maybe,Everbridge
+2/15/23 9:00,2/15/23 12:00,Avoid Freret-HT Area,0,0,Facilities Services,link incident report here maybe,Everbridge
