@@ -1,3 +1,4 @@
+--upgrade pip
 addict==2.4.0
 appdirs==1.4.4
 async==0.6.2
@@ -51,7 +52,7 @@ python-dateutil==2.8.2
 pytz==2022.7.1
 PyYAML==6.0
 scikit-learn==1.0.2
-scipy==1.10.1
+scipy==1.7.3
 soupsieve==2.4
 tenacity==8.2.2
 threadpoolctl==3.1.0
