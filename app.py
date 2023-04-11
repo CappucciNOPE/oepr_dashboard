@@ -138,7 +138,7 @@ def update_events(organizations,style,start_date, end_date, print):
     #bar graph -- events
     #bar_data_evs = pd.DataFrame(trainings.groupby(by=['Department/Organization'],as_index=False)['Event'].value_counts())#,columns=['Department/Organization','Training_Type','Counts'])
     bar_data_evs = vc(trainings)
-    bar_g_evs = px.bar(bar_data_evs,x='Department/Organization',y='count',color='Event')
+    bar_g_evs = px.bar(bar_data_evs,x='Department/Organization',y='counts',color='Event')
     bar_g_evs.update_layout(legend=dict(
     orientation="h",
     yanchor="bottom",
