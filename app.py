@@ -349,7 +349,8 @@ def make_pdf(data,bar_evs,bar_att,scatter,timeline,start_date,end_date):
     ft = Image.open("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"timeline.jpeg")
     ftw, fth = ft.size
     fulltime = report.image("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/"+"timeline.jpeg",w=report.epw,h=(fth)*(report.epw/ftw))
-    report.output("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/test.pdf")
+    #report.output("https://raw.githubusercontent.com/CappucciNOPE/oepr_dashboard/main/test.pdf")
+    report.ouput(dest='I')
     
         
         
