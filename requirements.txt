@@ -1,4 +1,4 @@
---upgrade pip
+pip==23.0.1
 addict==2.4.0
 appdirs==1.4.4
 async==0.6.2
