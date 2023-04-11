@@ -92,6 +92,27 @@ def download(n_clicks,start,end):
     )
 
 def update_events(organizations,style,start_date, end_date, print):
+    def vc(dfs):
+        d = {}
+        ds = []
+        es = []
+        cs = []
+        dopts=pd.unique(dfs['Department/Organization'])
+        eopts=pd.unique(dfs['Event'])
+        for dopt in dopts:
+            a = dfs.loc[dfs['Department/Organization']==dopt]
+            for eopt in eopts:
+                b = a.loc[a['Event']==eopt]
+                l = len(b)
+                ds.append(dopt)
+                es.append(eopt)
+                cs.append(l)
+        d['Department/Organization']= ds
+        d['Event']=es
+        d['counts']=cs
+        ret= pd.DataFrame.from_dict(d)
+        ret.columns=['Department/Organization','Event','counts']
+        return ret
     #filtering by dates:
     d = data.copy()
     start = pd.to_datetime(start_date)
@@ -115,7 +136,8 @@ def update_events(organizations,style,start_date, end_date, print):
         trainings=trainings.loc[trainings['Department/Organization'].isin(organizations)]
 
     #bar graph -- events
-    bar_data_evs = pd.DataFrame(trainings.groupby(by=['Department/Organization'],as_index=False)['Event'].value_counts())#,columns=['Department/Organization','Training_Type','Counts'])
+    #bar_data_evs = pd.DataFrame(trainings.groupby(by=['Department/Organization'],as_index=False)['Event'].value_counts())#,columns=['Department/Organization','Training_Type','Counts'])
+    bar_data_evs = vc(trainings)
     bar_g_evs = px.bar(bar_data_evs,x='Department/Organization',y='count',color='Event')
     bar_g_evs.update_layout(legend=dict(
     orientation="h",
