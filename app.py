@@ -43,6 +43,7 @@ for event in data['Start_Date/Time']:
 
 #dash.register_page(__name__)
 app = Dash(__name__)
+server=app.server
 auth = dash_auth.BasicAuth(
     app,
     VALID_USERNAME_PASSWORD_PAIRS
